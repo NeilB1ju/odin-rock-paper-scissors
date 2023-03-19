@@ -1,6 +1,9 @@
+// Global Declaration (Variables to track score)
 let playerScore=0
 let computerScore=0
 
+
+//Function to generate computer choice
 function getComputerChoice(){
     let num=Math.floor((Math.random() * 3) + 1);
     if(num==1){
@@ -14,6 +17,8 @@ function getComputerChoice(){
     }
 }
 
+
+//Function to decide the winner of the round
 function playRound(computerSelection,playerSelection){
     if(playerSelection==computerSelection){
         console.log(`It's a draw! You have both selected ${playerSelection}`);
@@ -44,6 +49,8 @@ function playRound(computerSelection,playerSelection){
     }
 }
 
+
+//Function to play a 5 round game 
 function game(){
     for (let i = 0; i < 5; i++) {
         let computerSelection=getComputerChoice();
@@ -62,4 +69,6 @@ function game(){
     }
 }
 
+
+//Function call to play the game 
 game()
