@@ -1,6 +1,6 @@
 // Global Declaration (Variables to track score)
-let playerScore=0
-let computerScore=0
+let playerScore=0;
+let computerScore=0;
 
 
 //Function to generate computer choice
@@ -55,8 +55,8 @@ function game(){
     for (let i = 0; i < 5; i++) {
         let computerSelection=getComputerChoice();
         let playerSelection=prompt("Enter your choice");
-        playerSelection=playerSelection.toLowerCase()
-        playRound(computerSelection,playerSelection)
+        playerSelection=playerSelection.toLowerCase();
+        playRound(computerSelection,playerSelection);
     }
     if(playerScore>computerScore){
         console.log(`You win! The score is ${playerScore} to ${computerScore}`);
@@ -71,4 +71,4 @@ function game(){
 
 
 //Function call to play the game 
-game()
+game();
