@@ -70,5 +70,5 @@ function game(){
 }
 
 
-//Function call to play the game 
+//Function call to start the game
 game();
