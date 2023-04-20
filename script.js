@@ -2,9 +2,10 @@
 let playerScore=0;
 let computerScore=0;
 
-//To display the score
+//To display the score and winner 
 let playerScoreTracker=document.querySelector('.player-score');
 let computerScoreTracker=document.querySelector('.computer-score');
+let winner=document.querySelector('.winner');
 
 
 //Function to generate computer choice
@@ -72,6 +73,20 @@ function playRound(computerSelection,playerSelection){
         console.log(`You Win! Scissors beats Paper`);
         playerScore+=1;
     }
+
+    //To check if someone has won
+    if(playerScore==5){
+        winner.textContent="You Win!";
+        playerScore=0;
+        computerScore=0;
+    }
+    if(computerScore==5){
+        winner.textContent="You Lose :(";
+        playerScore=0;
+        computerScore=0;
+    }
+
+    //To update the score on the screen
     computerScoreTracker.textContent=computerScore;
     playerScoreTracker.textContent=playerScore;
 }
