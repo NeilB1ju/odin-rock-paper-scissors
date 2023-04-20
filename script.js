@@ -2,6 +2,11 @@
 let playerScore=0;
 let computerScore=0;
 
+//To display the score and winner 
+let playerScoreTracker=document.querySelector('.player-score');
+let computerScoreTracker=document.querySelector('.computer-score');
+let winner=document.querySelector('.winner');
+
 
 //Function to generate computer choice
 function getComputerChoice(){
@@ -16,6 +21,26 @@ function getComputerChoice(){
         return "scissors";
     }
 }
+
+
+//Event Listeners for player choice
+let rock=document.querySelector('.rock');
+rock.addEventListener('click', () => {
+    playerSelection="rock";
+    playRound(getComputerChoice(),playerSelection);
+});
+
+let paper=document.querySelector('.paper');
+paper.addEventListener('click', () => {
+    playerSelection="paper";
+    playRound(getComputerChoice(),playerSelection);
+});
+
+let scissors=document.querySelector('.scissors');
+scissors.addEventListener('click', () => {
+    playerSelection="scissors";
+    playRound(getComputerChoice(),playerSelection);
+});
 
 
 //Function to decide the winner of the round
@@ -34,6 +59,7 @@ function playRound(computerSelection,playerSelection){
     else if(playerSelection=="paper" && computerSelection=="rock"){
         console.log(`You Win! Paper beats Rock`);
         playerScore+=1;
+        
     }
     else if(playerSelection=="paper" && computerSelection=="scissors"){
         console.log(`You lose! Scissors beats Paper`);
@@ -47,28 +73,23 @@ function playRound(computerSelection,playerSelection){
         console.log(`You Win! Scissors beats Paper`);
         playerScore+=1;
     }
+
+    //To check if someone has won
+    if(playerScore==5){
+        winner.textContent="You Win!";
+        playerScore=0;
+        computerScore=0;
+    }
+    if(computerScore==5){
+        winner.textContent="You Lose :(";
+        playerScore=0;
+        computerScore=0;
+    }
+
+    //To update the score on the screen
+    computerScoreTracker.textContent=computerScore;
+    playerScoreTracker.textContent=playerScore;
 }
 
 
-//Function to play a 5 round game 
-function game(){
-    for (let i = 0; i < 5; i++) {
-        let computerSelection=getComputerChoice();
-        let playerSelection=prompt("Enter your choice");
-        playerSelection=playerSelection.toLowerCase();
-        playRound(computerSelection,playerSelection);
-    }
-    if(playerScore>computerScore){
-        console.log(`You win! The score is ${playerScore} to ${computerScore}`);
-    }
-    else if(computerScore>playerScore){
-        console.log(`You lose! The score is ${playerScore} to ${computerScore}`);
-    }
-    else{
-        console.log(`It's a draw! The score is ${playerScore} to ${computerScore}`)
-    }
-}
 
-
-//Function call to start the game
-game();
