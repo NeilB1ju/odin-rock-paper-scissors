@@ -3,39 +3,53 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', arial;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    background-color: #393e46;
+    background-color: #222831;
 }
 
+
+/* Header Section */
 .header {
     display:flex;
     height: auto;
     width: 100%;
     justify-content: center;
-    background-color: #222831;
+    background-color: #111720;
     color:#fac650;
-    font-size: 40px;
-    padding: 30px 0px;
+    font-size: 30px;
+    padding: 50px 0px;
     justify-items: center;
     font-family: "Press Start 2P", cursive;
 }
 
+
+/* Main body of the website */
 .main{
     padding-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     height: 100%;
 }
 
-.main-text, .main-sub-text{
-    font-size: 30px;
-    color:#fac650;
+.main-text, .main-sub-text, .player-score, .computer-score, .footer-text{
+    color:#DDDDDD;
+    font-weight: bold;
 }
 
+.main-text{
+    font-size:30px;
+}
+
+.main-sub-text{
+    font-size:18px;
+}
+
+
+/* Gameplay buttons */
 .buttons{
     display: flex;
     justify-content: center;
@@ -46,18 +60,21 @@
     width:150px;
     height: 150px;
     border-radius: 8px;
-    background-color: blue;
+    background-color: rgb(57,62,70);
     border-style: none;
     font-size: 80px
 }
 
 .rock:hover, .paper:hover, .scissors:hover {
-    opacity: 80%
+    background-color: #4a4f57;
 }
 
+
+/* Displaying current score */
 .score-display{
     display:flex;
     gap: 20px;
+    padding: 20px 0px;
 }
 
 .player-display, .computer-display{
@@ -65,4 +82,48 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap:15px;
+}
+
+.player-choice, .computer-choice{
+    font-size: 100px;
+}
+
+.player-score, .computer-score{
+    font-size: 18px;
+}
+
+
+/* Footer section */
+.footer{
+    display:flex;
+    justify-content: center;
+    gap:15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    height: auto;
+}
+
+.footer-text{
+    font-size: 18px;
+}
+
+.footer-image{
+    width: 18px;
+    height: auto;
+}
+
+/* Media Queries */
+@media (max-width: 550px) {
+    .header{
+        font-size: 18px;
+    }
+
+    .rock, .paper, .scissors{
+        width: 110px;
+        height: 110px;
+        font-size: 70px;
+    }
 }
