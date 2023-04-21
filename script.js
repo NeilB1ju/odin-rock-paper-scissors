@@ -7,7 +7,8 @@ let playerScoreTracker=document.querySelector('.player-score');
 let computerScoreTracker=document.querySelector('.computer-score');
 let playerChoice=document.querySelector('.player-choice');
 let computerChoice=document.querySelector('.computer-choice');
-let winner=document.querySelector('.winner');
+let roundWinner=document.querySelector('.main-text');
+let roundStatus=document.querySelector('.main-sub-text');
 
 
 //Function to generate computer choice
@@ -64,42 +65,43 @@ function playRound(computerSelection,playerSelection){
 
     //To display the winner of the round
     if(playerSelection==computerSelection){
-        console.log(`It's a draw! You have both selected ${playerSelection}`);
+        roundWinner.textContent="Its a draw!";
+        roundStatus.textContent=`You have both selected ${playerSelection}`
     }
     else if(playerSelection=="rock" && computerSelection=="paper"){
-        console.log(`You lose! Paper beats Rock`);
+        roundWinner.textContent="You lost!";
+        roundStatus.textContent="Paper beats Rock";
         computerScore+=1;
     }
     else if(playerSelection=="rock" && computerSelection=="scissors"){
-        console.log(`You Win! Rock beats Paper`);
+        roundWinner.textContent="You win!";
+        roundStatus.textContent="Rock beats Paper";
         playerScore+=1;
     }
     else if(playerSelection=="paper" && computerSelection=="rock"){
-        console.log(`You Win! Paper beats Rock`);
+        roundWinner.textContent="You win!";
+        roundStatus.textContent="Paper beats Rock";
         playerScore+=1;
         
     }
     else if(playerSelection=="paper" && computerSelection=="scissors"){
-        console.log(`You lose! Scissors beats Paper`);
+        roundWinner.textContent="You lost!";
+        roundStatus.textContent="Scissors beats Paper";
         computerScore+=1;
     }
     else if(playerSelection=="scissors" && computerSelection=="rock"){
-        console.log(`You lose! Rock beats Scissors`);
+        roundWinner.textContent="You lost!";
+        roundStatus.textContent="Rcok beats Scissors";
         computerScore+=1;
     }
     else if(playerSelection=="scissors" && computerSelection=="paper"){
-        console.log(`You Win! Scissors beats Paper`);
+        roundWinner.textContent="You win!";
+        roundStatus.textContent="Paper beats Rock";
         playerScore+=1;
     }
 
     //To check if someone has won
-    if(playerScore==5){
-        winner.textContent="You Win!";
-        playerScore=0;
-        computerScore=0;
-    }
-    if(computerScore==5){
-        winner.textContent="You Lose :(";
+    if(playerScore==5 || computerScore==5){
         playerScore=0;
         computerScore=0;
     }
