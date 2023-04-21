@@ -5,6 +5,8 @@ let computerScore=0;
 //To display the score and winner 
 let playerScoreTracker=document.querySelector('.player-score');
 let computerScoreTracker=document.querySelector('.computer-score');
+let playerChoice=document.querySelector('.player-choice');
+let computerChoice=document.querySelector('.computer-choice');
 let winner=document.querySelector('.winner');
 
 
@@ -27,24 +29,40 @@ function getComputerChoice(){
 let rock=document.querySelector('.rock');
 rock.addEventListener('click', () => {
     playerSelection="rock";
+    playerChoice.textContent="✊";
     playRound(getComputerChoice(),playerSelection);
 });
 
 let paper=document.querySelector('.paper');
 paper.addEventListener('click', () => {
     playerSelection="paper";
+    playerChoice.textContent="✋";
     playRound(getComputerChoice(),playerSelection);
 });
 
 let scissors=document.querySelector('.scissors');
 scissors.addEventListener('click', () => {
     playerSelection="scissors";
+    playerChoice.textContent="✌";
     playRound(getComputerChoice(),playerSelection);
 });
 
 
 //Function to decide the winner of the round
 function playRound(computerSelection,playerSelection){
+
+    //To update the player and computer choice on screen
+    if(computerSelection=="rock"){
+        computerChoice.textContent="✊";
+    }
+    if(computerSelection=="paper"){
+        computerChoice.textContent="✋";
+    }
+    if(computerSelection=="scissors"){
+        computerChoice.textContent="✌";
+    }
+
+    //To display the winner of the round
     if(playerSelection==computerSelection){
         console.log(`It's a draw! You have both selected ${playerSelection}`);
     }
@@ -87,8 +105,8 @@ function playRound(computerSelection,playerSelection){
     }
 
     //To update the score on the screen
-    computerScoreTracker.textContent=computerScore;
-    playerScoreTracker.textContent=playerScore;
+    computerScoreTracker.textContent=`Player Score : ${playerScore}`;
+    playerScoreTracker.textContent=`Computer Score : ${computerScore}`;
 }
 
 
