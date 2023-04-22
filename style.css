@@ -115,6 +115,7 @@
     height: auto;
 }
 
+
 /* Media Queries */
 @media (max-width: 550px) {
     .header{

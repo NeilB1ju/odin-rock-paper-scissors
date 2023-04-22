@@ -107,8 +107,8 @@ function playRound(computerSelection,playerSelection){
     }
 
     //To update the score on the screen
-    computerScoreTracker.textContent=`Player Score : ${playerScore}`;
-    playerScoreTracker.textContent=`Computer Score : ${computerScore}`;
+    computerScoreTracker.textContent=`Computer Score : ${computerScore}`;
+    playerScoreTracker.textContent=`Player Score : ${playerScore}`;
 }
 
 
