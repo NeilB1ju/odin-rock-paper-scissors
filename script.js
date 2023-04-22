@@ -104,6 +104,8 @@ function playRound(computerSelection,playerSelection){
     if(playerScore==5 || computerScore==5){
         playerScore=0;
         computerScore=0;
+        computerChoice.textContent="❔";
+        playerChoice.textContent="❔";
     }
 
     //To update the score on the screen
