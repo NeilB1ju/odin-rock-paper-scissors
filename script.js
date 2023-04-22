@@ -104,11 +104,13 @@ function playRound(computerSelection,playerSelection){
     if(playerScore==5 || computerScore==5){
         playerScore=0;
         computerScore=0;
+        computerChoice.textContent="❔";
+        playerChoice.textContent="❔";
     }
 
     //To update the score on the screen
-    computerScoreTracker.textContent=`Player Score : ${playerScore}`;
-    playerScoreTracker.textContent=`Computer Score : ${computerScore}`;
+    computerScoreTracker.textContent=`Computer Score : ${computerScore}`;
+    playerScoreTracker.textContent=`Player Score : ${playerScore}`;
 }
 
 
