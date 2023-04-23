@@ -9,6 +9,10 @@ let playerChoice=document.querySelector('.player-choice');
 let computerChoice=document.querySelector('.computer-choice');
 let roundWinner=document.querySelector('.main-text');
 let roundStatus=document.querySelector('.main-sub-text');
+let modal=document.querySelector('.modal');
+let modalButton=document.querySelector('.modal-button');
+let modalText=document.querySelector('.modal-text');
+let overlay=document.querySelector('.overlay');
 
 
 //Function to generate computer choice
@@ -49,7 +53,7 @@ scissors.addEventListener('click', () => {
 });
 
 
-//Function to decide the winner of the round
+//Function to play a round
 function playRound(computerSelection,playerSelection){
 
     //To update the player and computer choice on screen
@@ -91,7 +95,7 @@ function playRound(computerSelection,playerSelection){
     }
     else if(playerSelection=="scissors" && computerSelection=="rock"){
         roundWinner.textContent="You lost!";
-        roundStatus.textContent="Rcok beats Scissors";
+        roundStatus.textContent="Rock beats Scissors";
         computerScore+=1;
     }
     else if(playerSelection=="scissors" && computerSelection=="paper"){
@@ -102,10 +106,26 @@ function playRound(computerSelection,playerSelection){
 
     //To check if someone has won
     if(playerScore==5 || computerScore==5){
-        playerScore=0;
-        computerScore=0;
-        computerChoice.textContent="❔";
-        playerChoice.textContent="❔";
+        if (playerScore==5){
+            modalText.textContent="You Win!";
+        }
+        if (computerScore==5){
+            modalText.textContent="You Lose...";
+        }
+        modal.classList.add('active');
+        overlay.classList.add('active');
+        modalButton.addEventListener('click', () => {
+            playerScore=0;
+            computerScore=0;
+            computerChoice.textContent="❔";
+            playerChoice.textContent="❔";
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+            playerScoreTracker.textContent="Player Score : ";
+            computerScoreTracker.textContent="Player Score : ";
+            roundWinner.textContent="Choose your weapon";
+            roundStatus.textContent="First to 5 points wins the game";
+        });
     }
 
     //To update the score on the screen
