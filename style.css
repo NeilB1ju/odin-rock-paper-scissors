@@ -140,10 +140,6 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-.window.active{
-    opacity: 10%;
-}
-
 .modal-text{
     font-size: 35px;
 }
